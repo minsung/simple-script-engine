@@ -1,0 +1,78 @@
+
+plugins {
+	id 'java'
+	id 'jacoco'
+	id "com.github.sakata1222.jacoco-markdown" version "1.4.0"
+	id 'groovy'
+}
+
+group = 'com.vrerv.scriptengine.simple-script-engine'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven {
+		url = 'https://jitpack.io'
+	}
+}
+
+sourceSets {
+	test {
+		java {
+			srcDirs = ['src/test/java']
+		}
+		resources {
+			srcDirs = ['src/test/resources']
+		}
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+jacoco {
+	toolVersion = '0.8.8'
+}
+
+jacocoTestReportMarkdown {
+	outputMd file("./test-coverage.md")
+}
+
+test.finalizedBy jacocoTestReport
+
+dependencies {
+	// lombok
+	def lombokVersion = '1.18.32'
+	compileOnly "org.projectlombok:lombok:$lombokVersion"
+	testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+	annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+	testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+	// end lombok
+
+	implementation 'org.slf4j:slf4j-api:1.7.32'
+
+	// --- Test dependencies --- //
+	testImplementation 'org.jacoco:org.jacoco.core:0.8.8'
+	def junitVersion = '5.8.1'
+	testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+	testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+	testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+
+	// jitpack
+}
+
+tasks.register('generateVersionFile') {
+	doLast {
+		file("$buildDir/generated/engine.version").text = project.version.toString()
+	}
+}
+
+processResources {
+	dependsOn 'generateVersionFile'
+	from("$buildDir/generated") {
+		include 'engine.version'
+		into 'generated'
+	}
+}
