@@ -248,7 +248,7 @@ public class SimpleExpressionEvaluator {
 		} else if (a instanceof Boolean && b instanceof Boolean) {
 			return calculateLogical(operator, (Boolean) a, (Boolean) b);
 		} else {
-			throw new IllegalArgumentException("Invalid operands for operator: " + operator.getSymbol());
+			throw new IllegalArgumentException("Invalid operands for operator: " + operator.getSymbol() + ", a(" + (a == null ? null : a.getClass()) + ")=" + a + ", b(" + (b == null ? null : b.getClass()) + ")=" + b);
 		}
 	}
 
