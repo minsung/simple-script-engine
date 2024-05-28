@@ -40,8 +40,7 @@ jacocoTestReportMarkdown {
 	outputMd file("./test-coverage.md")
 }
 
-// to fix jitpack.io build
-//test.finalizedBy jacocoTestReport
+test.finalizedBy jacocoTestReport
 
 dependencies {
 	// lombok
@@ -62,7 +61,7 @@ dependencies {
 	testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
 
 	// publishing to jitpack
-	implementation 'com.github.vrerv:simple-script-engine:v0.1.0'
+	implementation 'com.github.vrerv:simple-script-engine:v0.1.2'
 }
 
 tasks.register('generateVersionFile') {
