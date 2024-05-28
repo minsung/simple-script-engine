@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.vrerv.scriptengine.simple-script-engine'
-version = '0.1.4'
+version = '0.1.5'
 
 sourceCompatibility = 17
 targetCompatibility = 17
