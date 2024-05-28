@@ -21,6 +21,14 @@ This implements JSR-223 ScriptEngine interface and provides a simple expression 
 
 ## Usage
 
+It is required Java 17 or higher.
+
+To add gradle dependency:
+```groovy
+    implementation 'com.github.vrerv:simple-script-engine:v0.1.5'
+```
+
+To evaluate an expression:
 ```java
 public static void main(String[] args) throws ScriptException {
 

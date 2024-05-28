@@ -64,7 +64,7 @@ dependencies {
 	testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
 
 	// publishing to jitpack
-	//implementation "com.github.vrerv:simple-script-engine:v$version"
+	implementation "com.github.vrerv:simple-script-engine:v$version"
 }
 
 tasks.register('generateVersionFile') {
