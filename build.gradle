@@ -40,7 +40,8 @@ jacocoTestReportMarkdown {
 	outputMd file("./test-coverage.md")
 }
 
-test.finalizedBy jacocoTestReport
+// to fix jitpack.io build
+//test.finalizedBy jacocoTestReport
 
 dependencies {
 	// lombok
