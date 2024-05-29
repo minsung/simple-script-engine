@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.vrerv.scriptengine.simple-script-engine'
-version = '0.1.7'
+version = '0.1.8'
 
 sourceCompatibility = 17
 targetCompatibility = 17
@@ -68,7 +68,7 @@ dependencies {
 	testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
 
 	// publishing to jitpack
-	if (runJitpack) implementation "com.github.vrerv:simple-script-engine:v$version"
+	if (runJitpack) implementation "com.github.vrerv:simple-script-engine:$version"
 }
 
 tasks.register('generateVersionFile') {

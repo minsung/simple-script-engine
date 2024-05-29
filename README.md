@@ -31,7 +31,7 @@ It is required Java 17 or higher.
 
 To add gradle dependency:
 ```groovy
-    implementation 'com.github.vrerv:simple-script-engine:v0.1.5'
+    implementation 'com.github.vrerv:simple-script-engine:0.1.8'
 ```
 
 To evaluate an expression:
