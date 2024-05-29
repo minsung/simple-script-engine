@@ -19,6 +19,12 @@ This implements JSR-223 ScriptEngine interface and provides a simple expression 
 | or    | Logical OR  |
 | =     | Equal       |
 
+### Android
+
+- The library is compatible with Android.
+- Tested on Android 8.0(API level 26) emulator
+- On Android, you can just use the SimpleExpressionEvaluator class directly.
+
 ## Usage
 
 It is required Java 17 or higher.

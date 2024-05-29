@@ -107,7 +107,8 @@ public class SimpleExpressionEvaluator {
 		StringBuilder token = new StringBuilder();
 
 		Consumer<StringBuilder> checkAndAddToken = (t) -> {
-			if (!t.isEmpty()) {
+			// don't use t.isEmpty() because it's not compatible with Android
+			if (t.length() > 0) {
 				String tokenStr = t.toString();
 				addToken(context, tokens, tokenStr);
 				t.setLength(0);
