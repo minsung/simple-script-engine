@@ -30,6 +30,8 @@ public class SimpleExpressionEvaluator {
 		GREATER(">", 3, TokenType.LOGICAL_OPERATOR),
 		EQUALS("=", 3, TokenType.LOGICAL_OPERATOR),
 		EQUALS2("==", 3, TokenType.LOGICAL_OPERATOR),
+		NOT_EQUAL("not", 3, TokenType.LOGICAL_OPERATOR),
+		NOT_EQUAL2("!=", 3, TokenType.LOGICAL_OPERATOR),
 		AND("and", 4, TokenType.LOGICAL_OPERATOR),
 		AND2("&&", 4, TokenType.LOGICAL_OPERATOR),
 		OR("or", 4, TokenType.LOGICAL_OPERATOR),
@@ -279,6 +281,7 @@ public class SimpleExpressionEvaluator {
 			case LESS -> a.doubleValue() < b.doubleValue();
 			case GREATER -> a.doubleValue() > b.doubleValue();
 			case EQUALS, EQUALS2 -> a.doubleValue() == b.doubleValue();
+			case NOT_EQUAL, NOT_EQUAL2 -> a.doubleValue() != b.doubleValue();
 			default -> throw new IllegalArgumentException("Invalid logical operation: " + operator.getSymbol());
 		};
 	}
