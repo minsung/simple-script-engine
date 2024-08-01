@@ -18,7 +18,7 @@ This implements JSR-223 ScriptEngine interface and provides a simple expression 
 | and   | Logical AND |
 | or    | Logical OR  |
 | =     | Equal       |
-| !=    | Not Equal   |
+| not    | Not Equal   |
 
 ### Android
 
