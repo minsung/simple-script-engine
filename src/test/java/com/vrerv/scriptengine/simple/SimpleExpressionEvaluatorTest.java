@@ -63,6 +63,8 @@ public class SimpleExpressionEvaluatorTest {
 	static List<Arguments> provideSimpleExpression() {
 		return Arrays.asList(
 				Arguments.of(Map.of("x", 100), "x = 100", true),
+				Arguments.of(Map.of("x", 1, "y", 2), "x != y", true),
+				Arguments.of(Map.of("x", 1, "y", 2), "x not y", true),
 				Arguments.of(Map.of("x", 3, "y", 5), "x%y", 3L),
 				Arguments.of(Map.of("x", 42, "y", 43), "x + y", 85L),
 				Arguments.of(Map.of("x", 1, "y", 2, "z", 3), "(x+y)*z", 9L),
@@ -92,6 +94,17 @@ public class SimpleExpressionEvaluatorTest {
 		Map<String, Object> context2 = Map.of("x", 100);
 		Object result2 = evaluator.eval("x = 100", context2);
 		assertEquals(true, result2);
+	}
+
+	@Test
+	void testSimpleNotEquality() {
+		Map<String, Object> context3 = Map.of("x", 100);
+
+		Object result1 = evaluator.eval("x != 100", context3);
+		assertEquals(false, result1);
+
+		Object result2 = evaluator.eval("x not 100", context3);
+		assertEquals(false, result1);
 	}
 
 	@Test

@@ -9,7 +9,7 @@ This implements JSR-223 ScriptEngine interface and provides a simple expression 
 ## Features
 
 - Supports basic arithmetic operations: +, -, *, /, and %.
-- Handles logical operations: AND, OR, and comparisons <, >, <=, >=, ==
+- Handles logical operations: AND, OR, and comparisons <, >, <=, >=, ==, !=
 - Supports parentheses for grouping expressions.
 - Adding human friendly operator tokens.
 
@@ -18,6 +18,7 @@ This implements JSR-223 ScriptEngine interface and provides a simple expression 
 | and   | Logical AND |
 | or    | Logical OR  |
 | =     | Equal       |
+| not    | Not Equal   |
 
 ### Android
 
