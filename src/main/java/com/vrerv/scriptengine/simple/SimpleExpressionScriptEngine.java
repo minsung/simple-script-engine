@@ -1,8 +1,6 @@
 package com.vrerv.scriptengine.simple;
 
 import java.io.Reader;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.script.AbstractScriptEngine;
 import javax.script.Bindings;
@@ -18,12 +16,8 @@ public class SimpleExpressionScriptEngine extends AbstractScriptEngine {
     @Override
     public Object eval(String script, ScriptContext context) throws ScriptException {
         Bindings bindings = context.getBindings(ScriptContext.ENGINE_SCOPE);
-        Map<String, Object> variableMap = new HashMap<>();
-        for (String key : bindings.keySet()) {
-            variableMap.put(key, bindings.get(key));
-        }
         try {
-            return evaluator.eval(script, variableMap);
+            return evaluator.eval(script, bindings);
         } catch (RuntimeException e) {
             throw new ScriptException(e);
         }
